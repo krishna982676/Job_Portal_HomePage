@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobFinder - Find Your Dream Job</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <i class="fas fa-briefcase"></i>
+        <h1>JobFinder</h1>
+      </div>
+      <p class="tagline">Discover Your Next Opportunity</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+      <a href="#jobs" class="nav-link"><i class="fas fa-briefcase"></i> Jobs</a>
+      <a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+      <a href="#companies" class="nav-link"><i class="fas fa-building"></i> Companies</a>
+      <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section class="search" id="home">
+    <div class="search-container">
+      <h2>Find Your Perfect Job</h2>
+      <p>Search from thousands of opportunities</p>
+      <form class="search-form">
+        <div class="input-group">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Job title or keyword">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-map-marker-alt"></i>
+          <input type="text" placeholder="City or Location">
+        </div>
+        <button type="submit" class="search-btn">Search Jobs</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Job Listings -->
+  <section class="jobs" id="jobs">
+    <div class="jobs-container">
+      <h2>Latest Job Opportunities</h2>
+
+      <div class="job-card">
+        <div class="job-header">
+          <h3>Frontend Developer</h3>
+          <span class="job-type">Full-time</span>
+        </div>
+        <p class="company"><i class="fas fa-building"></i> Tech Solutions</p>
+        <p class="location"><i class="fas fa-map-marker-alt"></i> Remote</p>
+        <p class="salary"><i class="fas fa-dollar-sign"></i> ₹8,00,000 - ₹12,00,000/year</p>
+        <p class="job-description">We are looking for a talented Frontend Developer with 3+ years of experience in React and modern web technologies.</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div class="job-header">
+          <h3>Backend Developer</h3>
+          <span class="job-type">Full-time</span>
+        </div>
+        <p class="company"><i class="fas fa-building"></i> CodeCraft</p>
+        <p class="location"><i class="fas fa-map-marker-alt"></i> Bangalore</p>
+        <p class="salary"><i class="fas fa-dollar-sign"></i> ₹10,00,000 - ₹15,00,000/year</p>
+        <p class="job-description">Seeking an experienced Backend Developer proficient in Node.js, Python, or Java to join our growing team.</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div class="job-header">
+          <h3>Full Stack Developer</h3>
+          <span class="job-type">Full-time</span>
+        </div>
+        <p class="company"><i class="fas fa-building"></i> InnovateX</p>
+        <p class="location"><i class="fas fa-map-marker-alt"></i> Hyderabad</p>
+        <p class="salary"><i class="fas fa-dollar-sign"></i> ₹12,00,000 - ₹18,00,000/year</p>
+        <p class="job-description">Join our innovative team as a Full Stack Developer and work on cutting-edge projects using modern tech stack.</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <h2>About JobFinder</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Who We Are</h3>
+          <p>JobFinder is a leading online job portal dedicated to connecting talented professionals with opportunities that match their skills and aspirations. Since 2020, we've helped thousands of job seekers find their dream roles and companies discover top talent.</p>
+          <p>Our mission is to simplify the job search process by providing a user-friendly platform with advanced search filters, company insights, and career guidance tools.</p>
+        </div>
+        <div class="about-features">
+          <h3>Why Choose JobFinder?</h3>
+          <div class="features-grid">
+            <div class="feature-item">
+              <i class="fas fa-star"></i>
+              <h4>Verified Jobs</h4>
+              <p>All job listings are verified and updated regularly</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-bolt"></i>
+              <h4>Quick Application</h4>
+              <p>Apply to jobs in seconds with our streamlined process</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-chart-line"></i>
+              <h4>Career Growth</h4>
+              <p>Access resources to advance your professional development</p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-handshake"></i>
+              <h4>Trusted by Companies</h4>
+              <p>Top companies across India trust us for recruitment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Companies Section -->
+  <section class="companies" id="companies">
+    <div class="companies-container">
+      <h2>Featured Companies</h2>
+      <p class="section-subtitle">Join these amazing organizations</p>
+      
+      <div class="companies-grid">
+        <div class="company-card">
+          <div class="company-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Tech Solutions</h3>
+          <p class="company-description">Leading software development and IT consulting firm</p>
+          <div class="company-info">
+            <span class="jobs-count"><i class="fas fa-briefcase"></i> 45 Jobs</span>
+            <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+          </div>
+          <button class="company-btn">View Jobs</button>
+        </div>
+
+        <div class="company-card">
+          <div class="company-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>CodeCraft</h3>
+          <p class="company-description">Innovative software solutions and cloud services</p>
+          <div class="company-info">
+            <span class="jobs-count"><i class="fas fa-briefcase"></i> 32 Jobs</span>
+            <span class="location"><i class="fas fa-map-marker-alt"></i> Bangalore</span>
+          </div>
+          <button class="company-btn">View Jobs</button>
+        </div>
+
+        <div class="company-card">
+          <div class="company-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>InnovateX</h3>
+          <p class="company-description">AI and machine learning solutions provider</p>
+          <div class="company-info">
+            <span class="jobs-count"><i class="fas fa-briefcase"></i> 28 Jobs</span>
+            <span class="location"><i class="fas fa-map-marker-alt"></i> Hyderabad</span>
+          </div>
+          <button class="company-btn">View Jobs</button>
+        </div>
+
+        <div class="company-card">
+          <div class="company-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Digital Ventures</h3>
+          <p class="company-description">Web development and digital marketing agency</p>
+          <div class="company-info">
+            <span class="jobs-count"><i class="fas fa-briefcase"></i> 38 Jobs</span>
+            <span class="location"><i class="fas fa-map-marker-alt"></i> Mumbai</span>
+          </div>
+          <button class="company-btn">View Jobs</button>
+        </div>
+
+        <div class="company-card">
+          <div class="company-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>SecureNet Systems</h3>
+          <p class="company-description">Cybersecurity and data protection services</p>
+          <div class="company-info">
+            <span class="jobs-count"><i class="fas fa-briefcase"></i> 25 Jobs</span>
+            <span class="location"><i class="fas fa-map-marker-alt"></i> Pune</span>
+          </div>
+          <button class="company-btn">View Jobs</button>
+        </div>
+
+        <div class="company-card">
+          <div class="company-icon">
+            <i class="fas fa-cube"></i>
+          </div>
+          <h3>CloudFlow</h3>
+          <p class="company-description">Cloud computing and infrastructure solutions</p>
+          <div class="company-info">
+            <span class="jobs-count"><i class="fas fa-briefcase"></i> 41 Jobs</span>
+            <span class="location"><i class="fas fa-map-marker-alt"></i> Bangalore</span>
+          </div>
+          <button class="company-btn">View Jobs</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="contact-container">
+      <h2>Get In Touch</h2>
+      <p class="section-subtitle">We'd love to hear from you. Send us a message!</p>
+      
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <h4>Address</h4>
+              <p>123 Business Plaza<br>Tech Park, Bangalore<br>Karnataka 560001, India</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info-content">
+              <h4>Phone</h4>
+              <p>+91 (80) 1234-5678<br>+91 (99) 9876-5432</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-content">
+              <h4>Email</h4>
+              <p>support@jobfinder.com<br>careers@jobfinder.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-content">
+              <h4>Business Hours</h4>
+              <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>JobFinder</h4>
+        <p>Your gateway to career opportunities</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Browse Jobs</a></li>
+          <li><a href="#">For Companies</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 JobFinder. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

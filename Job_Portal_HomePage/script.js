@@ -1,77 +1,174 @@
-document.addEventListener("DOMContentLoaded", () => {
+let postedJobs = [];
+let editingId = null;
 
-  const searchForm = document.querySelector(".search-form");
-  const jobCards = document.querySelectorAll(".job-card");
+const form = document.getElementById("jobForm");
+const jobsList = document.getElementById("jobsList");
 
-  searchForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+/* ----- FORM SUBMIT ----- */
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    const keyword = searchForm
-      .querySelector("input[placeholder='Job title or keyword']")
-      .value.toLowerCase();
+  const imageInput = document.getElementById("jobImage");
+  const file = imageInput.files[0];
 
-    const location = searchForm
-      .querySelector("input[placeholder='City or Location']")
-      .value.toLowerCase();
+  const title = document.getElementById("jobTitle").value.trim();
+  const company = document.getElementById("companyName").value.trim();
+  const location = document.getElementById("location").value.trim();
+  const salary = document.getElementById("salary").value.trim();
+  const jobType = document.getElementById("jobType").value.trim();
+  const experience = document.getElementById("experience").value.trim();
+  const description = document.getElementById("description").value.trim();
 
-    jobCards.forEach(card => {
-      const title = card.querySelector("h3").innerText.toLowerCase();
-      const jobLocation = card.querySelector(".location").innerText.toLowerCase();
+  if (file) {
 
-      if (title.includes(keyword) && jobLocation.includes(location)) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
-    });
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+
+      const job = {
+        id: editingId || Date.now(),
+        title,
+        company,
+        location,
+        salary,
+        jobType,
+        experience,
+        description,
+        image: event.target.result
+      };
+
+      submitJob(job);
+    };
+
+    reader.readAsDataURL(file);
+
+  } 
+  else if (editingId) {
+
+    const existingJob = postedJobs.find(j => j.id === editingId);
+
+    const job = {
+      id: editingId,
+      title,
+      company,
+      location,
+      salary,
+      jobType,
+      experience,
+      description,
+      image: existingJob.image
+    };
+
+    submitJob(job);
+
+  } 
+  else {
+    alert("Please select an image file!");
+  }
+});
+
+/* ----- ADD / UPDATE JOB ----- */
+function submitJob(job) {
+
+  if (editingId) {
+
+    const index = postedJobs.findIndex(j => j.id === editingId);
+    postedJobs[index] = job;
+
+    editingId = null;
+    form.querySelector("button").innerText = "Post This Job";
+    alert("Job updated!");
+
+  } else {
+
+    postedJobs.push(job);
+    alert("Job posted successfully!");
+  }
+
+  form.reset();
+  displayJobs();
+}
+
+/* ----- DISPLAY JOBS ----- */
+function displayJobs() {
+
+  jobsList.innerHTML = "";
+
+  if (postedJobs.length === 0) {
+    jobsList.innerHTML = "<p>No jobs posted yet.</p>";
+    return;
+  }
+
+  postedJobs.forEach(job => {
+
+    const card = document.createElement("div");
+    card.className = "job-card";
+
+    card.innerHTML = `
+      <img src="${job.image}" alt="${job.title}">
+      <h3>${job.title}</h3>
+      <p><b>Company:</b> ${job.company}</p>
+      <p><b>Location:</b> ${job.location}</p>
+      <p><b>Salary:</b> ${job.salary}</p>
+      <p><b>Job Type:</b> ${job.jobType}</p>
+      <p><b>Experience:</b> ${job.experience}</p>
+      <p>${job.description}</p>
+
+      <div class="card-actions">
+        <button class="btn-edit" onclick="editJob(${job.id})">Edit</button>
+        <button class="btn-delete" onclick="deleteJob(${job.id})">Delete</button>
+      </div>
+    `;
+
+    jobsList.appendChild(card);
   });
+}
 
-  const applyButtons = document.querySelectorAll(".apply-btn");
+/* ----- EDIT JOB ----- */
+function editJob(id) {
 
-  applyButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      alert("✅ Application submitted successfully!\nOur team will contact you soon.");
-    });
+  const job = postedJobs.find(j => j.id === id);
+
+  document.getElementById("jobTitle").value = job.title;
+  document.getElementById("companyName").value = job.company;
+  document.getElementById("location").value = job.location;
+  document.getElementById("salary").value = job.salary;
+  document.getElementById("jobType").value = job.jobType;
+  document.getElementById("experience").value = job.experience;
+  document.getElementById("description").value = job.description;
+  document.getElementById("jobImage").value = "";
+
+  editingId = id;
+  form.querySelector("button").innerText = "Update Job";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
+}
 
-  const contactForm = document.querySelector(".contact-form");
+/* ----- DELETE JOB ----- */
+function deleteJob(id) {
 
-  contactForm.addEventListener("submit", function (e) {
+  if (confirm("Delete this job?")) {
+
+    postedJobs = postedJobs.filter(j => j.id !== id);
+    displayJobs();
+
+    alert("Job deleted!");
+  }
+}
+
+/* ----- CONTACT FORM ALERT ----- */
+const contactForm = document.querySelector(".contact-form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    if (!name || !email || !subject || !message) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-
-    alert("Thank you for contacting JobFinder!\nWe will get back to you shortly.");
+    alert("Thank you! We will contact you soon.");
     contactForm.reset();
   });
+}
 
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (pageYOffset >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
-  });
-
-});
+/* ----- INITIAL LOAD ----- */
+displayJobs();

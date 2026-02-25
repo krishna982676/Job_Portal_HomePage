@@ -1,3 +1,4 @@
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -5,17 +6,33 @@
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* COLOR SYSTEM */
+:root{
+  --black:#0b0b0c;
+  --dark:#121214;
+  --card:#1a1a1d;
+  --soft:#222226;
+
+  --gold:#d4af37;
+  --gold-soft:#e6c766;
+  --gold-light:#f3df9b;
+
+  --text:#e8e8e8;
+  --muted:#b9b9b9;
+}
+
+/* BODY */
 body{
-  background:#f5f7fa;
-  color:#333;
+  background:var(--black);
+  color:var(--text);
   line-height:1.6;
 }
 
 /* HEADER */
 header{
-  background:linear-gradient(135deg,#667eea,#764ba2);
-  color:white;
-  padding:40px 20px;
+  background:var(--dark);
+  border-bottom:1px solid rgba(212,175,55,.5);
+  padding:45px 20px;
   text-align:center;
 }
 
@@ -27,107 +44,177 @@ header{
 }
 
 .logo i{
-  font-size:2.5rem;
+  font-size:2.6rem;
+  color:var(--gold);
 }
 
 header h1{
-  font-size:2.5rem;
+  font-size:2.6rem;
+  color:var(--gold);
+  letter-spacing:.5px;
 }
 
 .tagline{
+  color:var(--gold-soft);
   margin-top:10px;
   opacity:.9;
 }
 
 /* NAVBAR */
 .navbar{
-  background:white;
-  box-shadow:0 2px 5px rgba(0,0,0,.1);
+  background:var(--soft);
+  border-bottom:1px solid rgba(212,175,55,.4);
   position:sticky;
   top:0;
   z-index:100;
+  backdrop-filter: blur(6px);
 }
 
 .nav-container{
   display:flex;
   justify-content:center;
-  gap:30px;
-  padding:12px;
+  gap:32px;
+  padding:14px;
 }
 
 .nav-link{
   text-decoration:none;
-  color:#667eea;
+  color:var(--gold-soft);
   font-weight:600;
+  transition:.25s;
 }
 
 .nav-link:hover{
-  color:#764ba2;
+  color:var(--gold-light);
 }
 
 /* SEARCH */
 .search{
-  background:linear-gradient(135deg,#667eea,#764ba2);
-  color:white;
-  padding:60px 20px;
+  background:var(--dark);
+  border-bottom:1px solid rgba(212,175,55,.35);
+  padding:70px 20px;
   text-align:center;
+}
+
+.search-container .search-form{
+  max-width:980px;
+  margin:22px auto 0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.search-row{
+  display:flex;
+  gap:12px;
+}
+
+.search-row input[type="search"],
+.search-row input[type="text"],
+.search-row select{
+  flex:1;
+  padding:12px 14px;
+  border-radius:8px;
+  border:1px solid rgba(212,175,55,.25);
+  background:var(--dark);
+  color:var(--text);
+}
+
+.search-actions{
+  justify-content:flex-end;
+}
+
+#clearFilters{
+  background:transparent;
+  border:1px solid rgba(212,175,55,.25);
+  color:var(--gold-soft);
+  padding:10px 16px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+#searchButton{
+  background:linear-gradient(135deg,var(--gold),#b8962e);
+  color:#111;
+  padding:10px 16px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+}
+
+#searchButton:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(212,175,55,.25);
+}
+
+@media(max-width:600px){
+  .search-row{flex-direction:column}
 }
 
 /* POST JOB FORM */
 .post-job{
-  padding:60px 20px;
+  padding:70px 20px;
 }
 
 .post-container{
   max-width:900px;
   margin:auto;
-  background:white;
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 3px 10px rgba(0,0,0,.1);
+  background:var(--card);
+  padding:35px;
+  border-radius:14px;
+  border:1px solid rgba(212,175,55,.4);
+  box-shadow:0 10px 35px rgba(0,0,0,.6);
 }
 
 .post-container h2{
-  margin-bottom:20px;
+  margin-bottom:22px;
   text-align:center;
-  color:#667eea;
+  color:var(--gold);
 }
 
+/* INPUTS */
 .job-form input,
 .job-form textarea{
   width:100%;
-  padding:12px 15px;
-  margin:10px 0;
-  border:1px solid #ddd;
-  border-radius:6px;
+  padding:13px 15px;
+  margin:12px 0;
+  background:var(--dark);
+  color:var(--text);
+  border:1px solid rgba(212,175,55,.4);
+  border-radius:8px;
   font-size:1rem;
+  transition:.25s;
 }
 
 .job-form input:focus,
 .job-form textarea:focus{
   outline:none;
-  border-color:#667eea;
-  box-shadow:0 0 0 2px rgba(102,126,234,.15);
+  border-color:var(--gold);
+  box-shadow:0 0 0 2px rgba(212,175,55,.2);
 }
 
+/* BUTTON */
 .job-form button{
-  background:#667eea;
-  color:white;
+  background:linear-gradient(135deg,var(--gold),#b8962e);
+  color:#111;
   border:none;
-  padding:12px 30px;
-  border-radius:6px;
-  font-weight:600;
+  padding:13px 32px;
+  border-radius:8px;
+  font-weight:700;
   cursor:pointer;
-  margin-top:10px;
+  margin-top:12px;
+  transition:.25s;
 }
 
 .job-form button:hover{
-  background:#764ba2;
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(212,175,55,.35);
 }
 
 /* JOB LIST */
 .jobs{
-  padding:60px 20px;
+  padding:70px 20px;
 }
 
 .jobs-container{
@@ -135,80 +222,106 @@ header h1{
   margin:auto;
 }
 
+/* job list - single column (restore original flow) */
+#jobsList{ display:block; }
+
 .jobs-container h2{
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:35px;
+  color:var(--gold);
 }
 
 /* JOB CARD */
+/* JOB CARD */
 #jobsList .job-card{
-  background:white;
-  padding:25px;
-  margin-bottom:25px;
+  background:var(--card);
+  padding:8px 10px; /* tighter */
+  margin-bottom:12px;
   border-radius:10px;
-  box-shadow:0 3px 10px rgba(0,0,0,.1);
-  transition:.3s;
+  border:1px solid rgba(212,175,55,.18);
+  box-shadow:0 6px 10px rgba(0,0,0,.38);
+  transition:.18s;
+  display:flex;
+  flex-direction:row-reverse; /* image on the right */
+  gap:8px; /* reduced gap between image and content */
+  align-items:center; /* vertically center image and content */
 }
 
 #jobsList .job-card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-6px);
+  border-color:var(--gold);
 }
+
+/* CARD IMAGE */
 
 .job-card img{
-  width:100%;
-  max-height:220px;
-  object-fit:cover;
+  width:160px; /* slightly larger image */
+  height:160px; /* fixed square */
+  object-fit:cover; /* fill and crop */
   border-radius:8px;
-  margin-bottom:15px;
+  flex-shrink:0;
+  margin-left:6px; /* tighter spacing */
 }
 
+.job-content{ flex:1; }
+
+/* CARD TEXT */
+
 .job-card h3{
-  color:#667eea;
-  margin-bottom:10px;
+  color:var(--gold);
+  margin-bottom:8px;
+  font-size:1.15rem;
 }
 
 .job-card p{
-  margin:6px 0;
-  color:#555;
+  margin:4px 0;
+  color:var(--muted);
+  font-size:0.92rem;
 }
 
-/* CARD ACTIONS */
+/* ACTIONS */
 .card-actions{
-  margin-top:15px;
+  margin-top:16px;
 }
 
 .card-actions button{
-  padding:8px 18px;
+  padding:9px 20px;
   border:none;
-  border-radius:5px;
+  border-radius:7px;
   cursor:pointer;
   font-weight:600;
   margin-right:10px;
+  transition:.25s;
 }
 
+/* EDIT */
 .btn-edit{
-  background:#27ae60;
+  background:#1f8f4f;
   color:white;
 }
+.btn-edit:hover{
+  background:#18733f;
+}
 
+/* DELETE */
 .btn-delete{
-  background:#e74c3c;
+  background:#c0392b;
   color:white;
 }
-
-.btn-edit:hover{background:#219150;}
-.btn-delete:hover{background:#c0392b;}
+.btn-delete:hover{
+  background:#992d22;
+}
 
 /* ABOUT */
 .about{
-  padding:60px 20px;
-  background:white;
+  padding:70px 20px;
+  background:var(--dark);
   text-align:center;
 }
 
 /* CONTACT */
 .contact{
-  padding:60px 20px;
+  padding:70px 20px;
 }
 
 .contact-container{
@@ -219,36 +332,43 @@ header h1{
 .contact-form input,
 .contact-form textarea{
   width:100%;
-  padding:12px;
-  margin:10px 0;
-  border:1px solid #ddd;
-  border-radius:6px;
+  padding:13px;
+  margin:12px 0;
+  background:var(--dark);
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:8px;
+  color:var(--text);
 }
 
+/* SUBMIT BTN */
 .submit-btn{
-  background:#667eea;
-  color:white;
+  background:linear-gradient(135deg,var(--gold),#b8962e);
+  color:#111;
   border:none;
-  padding:12px 25px;
-  border-radius:6px;
+  padding:13px 28px;
+  border-radius:8px;
   cursor:pointer;
+  font-weight:700;
+  transition:.25s;
 }
 
 .submit-btn:hover{
-  background:#764ba2;
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(212,175,55,.35);
 }
 
 /* FOOTER */
 footer{
-  background:#2c3e50;
-  color:white;
-  padding:40px 20px 20px;
+  background:var(--dark);
+  color:var(--gold-soft);
+  padding:45px 20px 22px;
   text-align:center;
+  border-top:1px solid rgba(212,175,55,.4);
 }
 
 .footer-bottom{
   margin-top:20px;
-  color:#aaa;
+  color:var(--muted);
 }
 
 /* RESPONSIVE */
@@ -256,14 +376,33 @@ footer{
 
   .nav-container{
     flex-direction:column;
-    gap:10px;
+    gap:12px;
   }
 
   .post-container{
-    padding:20px;
+    padding:25px;
   }
 
   header h1{
-    font-size:2rem;
+    font-size:2.1rem;
   }
+  
+  /* Make job cards stack on small screens */
+  #jobsList{ grid-template-columns:1fr; }
+
+  #jobsList .job-card{
+    display:block;
+    height:auto;
+  }
+
+  .job-card img{
+    width:100%;
+    height:auto;
+    margin-bottom:12px;
+  }
+}
+
+@media(max-width:1024px){
+  /* two columns on medium screens */
+  #jobsList{ grid-template-columns:repeat(2,1fr); }
 }

@@ -40,6 +40,37 @@
   <div class="search-container">
     <h2>Find Your Perfect Job</h2>
     <p>Search from thousands of opportunities</p>
+
+    <form id="searchForm" class="search-form" aria-label="Job search form">
+      <div class="search-row">
+        <input type="search" id="searchKeyword" placeholder="Keyword, title, or skills">
+        <input type="text" id="searchLocation" placeholder="Location">
+      </div>
+
+      <div class="search-row">
+        <select id="searchJobType">
+          <option value="all">All job types</option>
+          <option value="Full time">Full time</option>
+          <option value="Part time">Part time</option>
+          <option value="Remote">Remote</option>
+          <option value="Contract">Contract</option>
+        </select>
+
+        <select id="searchExperience">
+          <option value="any">Any experience</option>
+          <option value="0">0+ years</option>
+          <option value="1">1+ years</option>
+          <option value="3">3+ years</option>
+          <option value="5">5+ years</option>
+        </select>
+      </div>
+
+      <div class="search-row search-actions">
+        <button type="button" id="clearFilters">Clear</button>
+        <button type="button" id="searchButton">Search</button>
+      </div>
+    </form>
+
   </div>
 </section>
 
